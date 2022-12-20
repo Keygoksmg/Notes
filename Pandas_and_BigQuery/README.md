@@ -132,6 +132,6 @@ ORDER BY 2 DESC
 ```
 
 
-##参考
+## 参考
 - [BigQuery ↔ Pandas間で読み込み/書き込み](https://qiita.com/komiya_____/items/8fd900006bbb2ebeb8b8)
 - [INFORMATION_SCHEMAでBigQueryの利用状況を確認](https://www.niandc.co.jp/sol/tech/date20200923_1893.php)
