@@ -64,10 +64,10 @@
 - プロジェクト一覧の確認  
 ```gcloud projects list```
 
-- プロジェクトの作成
+- プロジェクトの作成  
 ```gcloud projects create プロジェクトID --name プロジェクト名```
 
-- プロジェクトの切り替え
+- プロジェクトの切り替え  
 ```gcloud config set project プロジェクトID```
 
 
@@ -81,7 +81,7 @@
 	e.g. ``` gcloud iam service-accounts create bq-connector
 	--display-name bq-connector-display ```
 
-- プロジェクトに紐付いている権限を確認
+- プロジェクトに紐付いている権限を確認  
 ```gcloud projects get-iam-policy プロジェクトID```
 
 - サービスアカウントへ権限付与
@@ -92,14 +92,22 @@
 	--member serviceAccount:サービスアカウントネーム@プロジェクトID.iam.gserviceaccount.com \
 	--role roles/bigquery.admin
 	```
-	e.g. ``` gcloud projects add-iam-policy-binding research-megi --member="serviceAccount:bq-connector@research-megi.iam.gserviceaccount.com" --role="roles/bigquery.admin" ```
+	e.g. 
+	
+	```
+	gcloud projects add-iam-policy-binding research-megi --member="serviceAccount:bq-connector@research-megi.iam.gserviceaccount.com" --role="roles/bigquery.admin" 
+	```
 
 - サービスアカウントキー作成
 
 	```
 	gcloud iam service-accounts keys create FILE_NAME.json --iam-account=SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com
 	```
-	e.g. ```gcloud iam service-accounts keys create bq-connector-keys.json --iam-account=bq-connector@research-megi.iam.gserviceaccount.com ```
+	e.g. 
+	
+	```
+	gcloud iam service-accounts keys create bq-connector-keys.json --iam-account=bq-connector@research-megi.iam.gserviceaccount.com
+	```
 
 
 
