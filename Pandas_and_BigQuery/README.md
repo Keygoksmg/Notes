@@ -26,7 +26,7 @@
 
 	`GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"`
 6. pip/condaで必要なモジュールをinstall  
-	`pip install --upgrade pandas-gbq 'google-cloud-	bigquery[bqstorage,pandas]'`
+	`pip install --upgrade pandas-gbq 'google-cloud-bigquery[bqstorage,pandas]'`
 
 8. Run query.
 
