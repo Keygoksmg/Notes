@@ -43,17 +43,18 @@
 - Service account:
 
 > サービス アカウントは、ユーザーではなく、Compute Engine 仮想マシン（VM）インスタンスなどのアプリケーションやコンピューティング ワークロードで使用される特別なアカウントです。アプリケーションはサービス アカウントを使用して、承認された API 呼び出しを行います。
-[参考] (https://cloud.google.com/iam/docs/service-accounts?hl=ja)
+[参考](https://cloud.google.com/iam/docs/service-accounts?hl=ja)
 
 
 
 ###  プロジェクトとは
 プロジェクト単位で課金やユーザー管理を行う。
-[参考] (https://qiita.com/miyuki_samitani/items/0cdd1b8b0f4feb0506f8)
+[参考](https://qiita.com/miyuki_samitani/items/0cdd1b8b0f4feb0506f8)
 
 
 ### 認証
-サービスアカウントをもとにBigQueryなどのサービスをAPIを通じて使えるように認証の手続きをする。[認証の手順] (https://cloud.google.com/docs/authentication/getting-started#create-service-account-gcloud)
+サービスアカウントをもとにBigQueryなどのサービスをAPIを通じて使えるように認証の手続きをする。
+[認証の手順](https://cloud.google.com/docs/authentication/getting-started#create-service-account-gcloud)
 
 
 ##  使用するコマンド・便利なコマンド
