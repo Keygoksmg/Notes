@@ -1,4 +1,12 @@
-# pandas and GCP(Big Query)
+# BigQuery tips
+## Upload txt file to BigQuery
+Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format: CSV > Table type: External tableの順でいけるみたい.  
+[Loading text file into BigQuery](https://maczulajtys.com/posts/load-text-file-to-bigquery/)
+
+
+* * * *
+
+# pandas and Big Query
 
 ## 設定の流れ
 大まかな下準備流れは以下の通りである。
@@ -140,11 +148,9 @@ GROUP BY 1
 ORDER BY 2 DESC
 ```
 
-## Upload txt file to bq
-Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format: CSV > Table type: External tableの順でいけるみたい.  
-[Loading text file into BigQuery](https://maczulajtys.com/posts/load-text-file-to-bigquery/)
-
 
 ## 参考
 - [BigQuery ↔ Pandas間で読み込み/書き込み](https://qiita.com/komiya_____/items/8fd900006bbb2ebeb8b8)
 - [INFORMATION_SCHEMAでBigQueryの利用状況を確認](https://www.niandc.co.jp/sol/tech/date20200923_1893.php)
+
+* * * *
