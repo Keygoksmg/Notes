@@ -7,7 +7,7 @@
 2. サービスアカウントを作る。
 
 	```
-	gcloud iam service-accounts create サービスアカウント名
+	gcloud iam service-accounts create サービスアカウント名 \
 	--display-name サービスアカウントディスプレイ名 
 	```
 3. サービスアカウントに権限(role)を与える。（今回ならBig Queryの権限）
