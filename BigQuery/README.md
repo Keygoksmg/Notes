@@ -6,7 +6,7 @@ Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format
 
 * * * *
 
-# pandas and Big Query
+# Big Query and pandas
 
 ## 設定の流れ
 大まかな下準備流れは以下の通りである。
@@ -39,7 +39,7 @@ Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format
 8. Run query.
 
 ## 実行
-- [example.ipynb](https://github.com/Keygoksmg/Notes/blob/main/Pandas_and_BigQuery/example.ipynb)
+- [example.ipynb](example.ipynb)
 - [現在使ってる使用状況を把握](usage.ipynb)
 
 
