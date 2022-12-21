@@ -143,7 +143,7 @@ Big Queryのdataset作成時のリージョンについて
 
 - [BigQueryStorageAPIを使ってBigQueryからPandas DataFrameに高速変換](https://zenn.dev/r2en/articles/b804085227983c)
 
-
+- サービスアカウントのkeyを環境変数として設定するが、複数のプロジェクトを扱う際は環境変数の切り替えが必要になる。そこでdirenvを使ってディレクトリ単位で行う。　[direnvを使おう](https://qiita.com/kompiro/items/5fc46089247a56243a62)
 * * * *
 
 # 費用に関するクエリ
