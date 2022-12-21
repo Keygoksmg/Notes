@@ -1,13 +1,31 @@
-# BigQuery tips
-## Upload txt file to BigQuery
-Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format: CSV > Table type: External tableの順でいけるみたい.  
-[Loading text file into BigQuery](https://maczulajtys.com/posts/load-text-file-to-bigquery/)
+# BigQuery tips  
+<small>*Google cloudの開発が比較的早いので参考記事など古い可能性あり。(2022/12)</small>
 
+## 基本のチュートリアル/教養
+そもそもGoogle Clooud, Big Query, Google Cloud Storage(GCS)とはなんぞや
+
+- Big Query：[公式](https://cloud.google.com/bigquery/pricing?hl=ja),  [参考記事](https://www.dsk-cloud.com/blog/bigquery-pricing-and-points), [BigQuery チュートリアル](https://cloud.google.com/bigquery/docs?hl=ja#training-and-tutorials)
+
+- GCS：[公式](https://cloud.google.com/storage/pricing?hl=ja)、[参考記事](https://www.dsk-cloud.com/solution/gcp/google-cloud-storage), [GCS チュートリアル](https://cloud.google.com/storage/docs?hl=ja#training-and-tutorials)
+
+
+BigQueryを扱う時に知っておくべきコストに関する教養
+
+- [BigQueryのコストに対する恐怖心を払拭する](https://qiita.com/kamujun/items/ab3cd3e6f8934a01cbc8)
+
+- [BigQueryのお金のあれこれ](https://zenn.dev/k_matsumoto/articles/533fe48e13e2ac)
+
+
+Big Queryのdataset作成時のリージョンについて  
+<small>*参考記事が古い可能性あり。</small>
+
+- [Google BigQuery はロケーションをまたいだクエリが書けない](https://note.com/miya_y/n/nc18b0a6e1063)
 
 * * * *
 
-# Big Query and pandas
 
+# Big Query and pandas
+参考：[BigQuery ↔ Pandas間で読み込み/書き込み](https://qiita.com/komiya_____/items/8fd900006bbb2ebeb8b8)
 ## 設定の流れ
 大まかな下準備流れは以下の通りである。
 	
@@ -39,13 +57,13 @@ Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format
 8. Run query.
 
 ## 実行
-- [example.ipynb](example.ipynb)
+- [example_bq_pandas.ipynb](example_bq_pandas.ipynb)
 - [現在使ってる使用状況を把握](usage.ipynb)
 
 
 
 
-## GCPの用語・概念
+## Google Cloud上の用語・概念
 ###  User account　と　Service account
 - User accountはgmailなど、人間に該当する。
 - Service account:
@@ -118,9 +136,20 @@ Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format
 	gcloud iam service-accounts keys create bq-connector-keys.json --iam-account=bq-connector@research-megi.iam.gserviceaccount.com
 	```
 
+##  pandas経由扱う際のtips  
+<small>*参考記事が古い可能性あり。</small>
+
+- [遅すぎる `pandas.read_gbq` を使わずに、Google BigQueryから高速にデータを読み込む](https://shunyaueta.com/posts/2019-10-03/)
+
+- [BigQueryStorageAPIを使ってBigQueryからPandas DataFrameに高速変換](https://zenn.dev/r2en/articles/b804085227983c)
 
 
-## 費用に関するクエリ
+* * * *
+
+# 費用に関するクエリ
+
+参考：[INFORMATION_SCHEMAでBigQueryの利用状況を確認](https://www.niandc.co.jp/sol/tech/date20200923_1893.php)
+
 - ある**Dataset**の容量を調べる
 
 ```
@@ -148,9 +177,10 @@ GROUP BY 1
 ORDER BY 2 DESC
 ```
 
-
-## 参考
-- [BigQuery ↔ Pandas間で読み込み/書き込み](https://qiita.com/komiya_____/items/8fd900006bbb2ebeb8b8)
-- [INFORMATION_SCHEMAでBigQueryの利用状況を確認](https://www.niandc.co.jp/sol/tech/date20200923_1893.php)
-
 * * * *
+
+# Tips
+## Upload txt file to BigQuery
+Local > upload to GCS > Create bq table from: Google Cloud Storage > File Format: CSV > Table type: External tableの順でいけるみたい.  
+[Loading text file into BigQuery](https://maczulajtys.com/posts/load-text-file-to-bigquery/)
+
