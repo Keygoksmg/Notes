@@ -1,7 +1,4 @@
-# BigQuery tips  
-<small>*Google cloudの開発が比較的早いので参考記事など古い可能性あり。(2022/12)</small>
-
-## CSSの苦手を克服するときに躓いたメモ
+# CSSの苦手を克服するときに躓いたメモ
 
 ### CSS / SCCS の違い。
 - e.g., nestでかけるかどうか。
