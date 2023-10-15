@@ -7,7 +7,14 @@ Preparing to use BigQuery necessitates the uploading of data. There are various 
 
 However, the aforementioned approaches may not be viable for large data uploads. A common practice for uploading large datasets involves using Google Cloud Storage (GCS).
 
+```mermaid
+graph TD;
+    Server-- upload -->GoogleCloudStorage;
+    GoogleCloudStorage-- upload -->GoogleBigQuery;
+```
+
 Below, I briefly illustrate how to upload a dataset into GCS and prepare it for use with BigQuery.
+
 
 ## 1. Install gcloud CLI on server
 To upload data from a server to GCS, the gcloud command line interface (CLI) needs to be installed on the server.
@@ -85,3 +92,4 @@ You can solve this issue as follows.
 	```
 	
 2. Then, Upload to GCS and import into BigQuery as explained the above.
+
