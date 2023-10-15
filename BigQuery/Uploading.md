@@ -53,37 +53,35 @@ Utilize the ```-r``` option to copy an entire directory tree. For transferring a
 
 
 
-## 3. (if you upload compressed file,) unzip the file with Coogle Compute Engine(GCE)
+## 3. (if you upload compressed file,) unzip the file with Dataflow/Coogle Compute Engine(GCE)
+When importing ```.gz``` files into BigQuery, be mindful that input files must be non-splittable and should not exceed 4GB. One solution is [Bulk Decompress Cloud Storage Files template](https://cloud.google.com/dataflow/docs/guides/templates/provided/bulk-decompress-cloud-storage#gcloud) with [Dataflow](https://cloud.google.com/dataflow?hl=en).
+
+It is the simplest way to decompress the ```.gz``` files in GCS as far as I know. 
+
+## 4. Import data from GCS to BigQuery
+Follow big query UI. Select **create table from  Google Cloud Storage**, and import data.
+
+*If you don't need the data in GCS after importing data into BigQuery, you can delete it to reduce the cost of storage.*
+
+
+# Troubleshooting
+## MAG case: import .txt file into BigQuery.
+We need to specify the schema. You can define as json using the MAG_2021-12-06/bq_schemes/ info. Otherwise, you need to set columns and data types.
+
+## Encoding problem
+When I upload **mag/Papers.txt** and **mag/PaperAuthorAffiliations.txt** into BigQuery, I faced the issues of encoding because BigQuery supports UTF-8 encoding for both nested or repeated and flat data. 
+
+Acutual errors was 
+
+```
+Failed to create table: Error while reading data, error message: Error detected while parsing row starting at position: 48237355519. Error: Bad character (ASCII 0) encountered 
+```
+
+You can solve this issue as follows.
+
+1. before uploading the file from server to GCS, remove the  character (ASCII 0) by
+	```
+	perl -pe 's/\000/ /g' problem_file > converted_file
+	```
 	
-When importing ```.gz``` files into BigQuery, be mindful that input files must be non-splittable and should not exceed 4GB. One solution is to unzip using GCE. The simple 4-step solution is illustrated here:
-
-1. Create VM instance on Google Compute Engine
-
-	Create an instance following [this document](https://cloud.google.com/compute/docs/instances/create-start-instance). If you choose the default option (e2-medium, 2vCPU, RAM 4GB) without any changes, the pricing of the instance is $0.03351/hour. Charges apply only when the instance is running.
-
-2. Accont verification
-
-	After creating an instance, log in via SSH, and verify your Google Cloud account by executing ```gcloud init``` in the terminal.
-
-
-3. Unzip file
-
-	Execute copy, unzip, and upload to GCS using the following commands:	
-	```
-	gsutil cp gs://input_backet/file_name.csv.gz - | gunzip | gsutil cp - gs://output_backet/file_name.csv
-	```
-	
-	If you want to unzip multiple files in a folder, use the following format:
-	
-	```
-	gsutil cp gs://input_backet/*.gz - | gunzip | gsutil cp - gs://output_backet/output.csv
-	```
-
-4. Stop instance
-
-	Ensure to stop the instance after completing the commands. Note: If the instance is not stopped, it will continue accruing costs even when not in use.
-
-
-Feel free to make further adjustments as per your documentation standards.
-
-
+2. Then, Upload to GCS and import into BigQuery as explained the above.
