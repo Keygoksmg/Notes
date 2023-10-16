@@ -43,11 +43,11 @@ If you use [Dataflow Prime compute resources](https://cloud.google.com/dataflow/
 ###  **User account** and **Service account**
 - User account: You! Human account.
 
-> An account provides users with a name and password for signing in to their Google services.
+	> An account provides users with a name and password for signing in to their Google services.
 
 - Service account:
 
-> A service account is a special kind of account typically used by an application or compute workload, such as a Compute Engine instance, rather than a person. A service account is identified by its email address, which is unique to the account.
+	> A service account is a special kind of account typically used by an application or compute workload, such as a Compute Engine instance, rather than a person. A service account is identified by its email address, which is unique to the account.
 [Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview)
 
 
