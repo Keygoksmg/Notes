@@ -7,11 +7,15 @@ Preparing to use BigQuery necessitates the uploading of data. There are various 
 
 However, the aforementioned approaches may not be viable for large data uploads. A common practice for uploading large datasets involves using Google Cloud Storage (GCS).
 
+> Overall process of uploading files
+> 
 ```mermaid
 graph TD;
-    Server-- upload -->GoogleCloudStorage;
+    Server/Local-- upload -->GoogleCloudStorage;
     GoogleCloudStorage-- upload -->GoogleBigQuery;
-```
+    GoogleCloudStorage-- if files are compressed -->Dataflow;
+    Dataflow-- decompress&upload --> GoogleBigQuery;
+``` 
 
 Below, I briefly illustrate how to upload a dataset into GCS and prepare it for use with BigQuery.
 
@@ -62,6 +66,7 @@ Utilize the ```-r``` option to copy an entire directory tree. For transferring a
 
 ## 3. (if you upload compressed file,) unzip the file with Dataflow/Coogle Compute Engine(GCE)
 When importing ```.gz``` files into BigQuery, be mindful that input files must be non-splittable and should not exceed 4GB. One solution is [Bulk Decompress Cloud Storage Files template](https://cloud.google.com/dataflow/docs/guides/templates/provided/bulk-decompress-cloud-storage#gcloud) with [Dataflow](https://cloud.google.com/dataflow?hl=en).
+After successfully completed Bulk Decompress Cloud Storage Files, you can upload decompressed files from Cloud to BigQuery.
 
 It is the simplest way to decompress the ```.gz``` files in GCS as far as I know. 
 
