@@ -7,6 +7,38 @@ This is my personal note.
 ### [Use BigQuery directly from Notebook](BQ_Notebook.md)
 ### [Memo in Japanese](README_jp.md)
 
+## Price
+Here is the approximate pricing list.
+### [Google BigQuery pricing](https://cloud.google.com/bigquery/pricing)
+- Queries: $6.25 per TiB (The first 1 TiB per month is free.)
+- Storage: $0.02 per GiB per month for active storage
+
+### [Cloud Storage pricing](https://cloud.google.com/storage/pricing)
+- Data storage: the amount of data stored in your buckets. Storage rates vary depending on the storage class of your data and location of your buckets.
+
+	> US (United States multi-region) $0.026 per GB per Month for Standard storage
+
+- Data processing: the processing done by Cloud Storage, which includes operations charges, any applicable retrieval fees, and inter-region replication.
+- Network usage: the amount of data read from or moved between your buckets.
+
+### [Dataflow pricing](https://cloud.google.com/dataflow/pricing)
+Mainly used for decompressing files in Cloud Storage. The pricing is complicated, and the rates depend on the region you use. Here, *us-east1* case is shown as example:
+
+If you use [Dataflow compute resources](https://cloud.google.com/dataflow/pricing#compute-resources).
+
+- Worker CPU and memory (batch, streaming, and FlexRS)
+- Dataflow Shuffle data processed (batch only)
+- Streaming Engine data processed (streaming only)
+
+	> Batch(\$0.056), FlexRS(\$0.0336), Streaming(\$0.069) per (per vCPU per hour)
+
+If you use [Dataflow Prime compute resources](https://cloud.google.com/dataflow/pricing#prime-compute-resources).
+
+- Data Compute Units (DCUs) (batch and streaming)
+
+	> Batch(\$0.06) and
+	> Streaming(\$0.089) per Data Compute Units (per DCU)
+
 ## Terms in Google Cloud
 ###  **User account** and **Service account**
 - User account: You! Human account.
