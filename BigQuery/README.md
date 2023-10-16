@@ -1,6 +1,6 @@
 # BigQuery | Introduction to Tips
 
-This is my personal note.
+This is my personal memo for GCP, mainly for BigQuery.
 
 ## Instructions
 ### [Uploading data into BigQuery](Uploading.md)
@@ -109,7 +109,7 @@ If you use [Dataflow Prime compute resources](https://cloud.google.com/dataflow/
 	gcloud iam service-accounts keys create bq-connector-keys.json --iam-account=bq-connector@research-megi.iam.gserviceaccount.com
 	```
 
-# Queries to check current usecase in BigQuery
+## Queries to check current usecase in BigQuery
 You can run the following queries in your BigQuery.
 Also, you can see in [usage.ipynb](usage.ipynb)
 
