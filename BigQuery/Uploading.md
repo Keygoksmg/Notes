@@ -30,6 +30,7 @@ Note that installing gcloud CLI using apt-get, as described in the Debian/Ubuntu
 Once installed, connect with your project by executing `gcloud init` in your terminal.
 
 ## 2. Uploading to Google Cloud Storage (GCS)
+
 The gsutil `cp` command allows you to copy data between your local file system and the cloud, within the cloud, and between different cloud storage providers, like so:
 
 ```bash
@@ -61,7 +62,7 @@ gsutil -m cp -r dir gs://my-bucket
 
 Utilize the ```-r``` option to copy an entire directory tree. For transferring a large number of files, perform a parallel multi-threaded/multi-processing copy using the top-level gsutil ```-m``` option.
 
-
+For more detail, please visit [cp - Copy files and objects](https://cloud.google.com/storage/docs/gsutil/commands/cp)
 
 
 ## 3. (if you upload compressed file,) unzip the file with Dataflow/Coogle Compute Engine(GCE)
@@ -72,6 +73,28 @@ It is the simplest way to decompress the ```.gz``` files in GCS as far as I know
 
 ## 4. Import data from GCS to BigQuery
 Follow big query UI. Select **create table from  Google Cloud Storage**, and import data.
+
+One of the advantage is that you can use file patterns. Say you have files in Cloud Storage like:
+
+```
+/dir
+├── example0.csv
+├── example1.csv
+└── example2.csv
+```
+
+You can set the file pattern `gs://dir/example*.csv` when uploading them from GCS, and BigQuery merge them into a created table.
+
+
+There is some requirements that you should know before:
+
+- BigQuery and Cloud Storage should be in the same region
+- when loading **Parquet** or **Avro** files into BigQuery, keep row sizes to 50 MB or less
+- when loading **gzip** file, maximum size file is 4GB
+- when loading **JSON** file, it should be newline delimited format, like `.jsonl`
+- when loading **CSV** oor **JSON** file,  values in `TIMESTAMP` columns must use a dash (`-`) or slash (`/`) separator for the date portion of the timestamp, and the date must be in one of the following formats: `YYYY-MM-DD` (year-month-day) or `YYYY/MM/DD` (year/month/day).
+
+For more detail, please visit [Loading data from Cloud Storage](https://cloud.google.com/bigquery/docs/batch-loading-data#permissions-load-data-from-cloud-storage)
 
 *If you don't need the data in GCS after importing data into BigQuery, you can delete it to reduce the cost of storage.*
 
