@@ -89,7 +89,7 @@ You can set the file pattern `gs://dir/example*.csv` when uploading them from GC
 There is some requirements that you should know before:
 
 - BigQuery and Cloud Storage should be in the same region
-- when loading **Parquet** or **Avro** files into BigQuery, keep row sizes to 50 MB or less
+- when loading **Parquet** or **Avro** files into BigQuery, keep row sizes to 50 MB or less. If there is memory error when uploading, it might be fixed after converting files into JSON.
 - when loading **gzip** file, maximum size file is 4GB
 - when loading **JSON** file, it should be newline delimited format, like `.jsonl`
 - when loading **CSV** oor **JSON** file,  values in `TIMESTAMP` columns must use a dash (`-`) or slash (`/`) separator for the date portion of the timestamp, and the date must be in one of the following formats: `YYYY-MM-DD` (year-month-day) or `YYYY/MM/DD` (year/month/day).

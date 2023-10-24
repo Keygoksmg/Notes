@@ -9,7 +9,7 @@ This is my personal memo for GCP, mainly for BigQuery.
 
 ## Price
 Here is the approximate pricing list.
-### [Google BigQuery pricing](https://cloud.google.com/bigquery/pricing)
+### [Google BigQuery pricing](https://cloud.google.com/bigquery/pricing) -> [see more detail](Cost.md) 
 - Queries: $6.25 per TiB (The first 1 TiB per month is free.)
 - Storage: $0.02 per GiB per month for active storage
 
