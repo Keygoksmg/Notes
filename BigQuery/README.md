@@ -5,6 +5,7 @@ This is my personal memo for GCP, mainly for BigQuery.
 ## Instructions
 ### [Uploading data into BigQuery](Uploading.md)
 ### [Use BigQuery directly from Notebook](BQ_Notebook.md)
+### [BigQuery cost tips](Cost.md)
 ### [Memo in Japanese](README_jp.md)
 
 ## Price

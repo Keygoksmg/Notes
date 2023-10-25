@@ -1,4 +1,4 @@
-# Google BigQuery Cost
+# BigQuery Cost Tips
 
 
 Please carefully read [On-demand compute pricing](https://cloud.google.com/bigquery/pricing#on_demand_pricing).
