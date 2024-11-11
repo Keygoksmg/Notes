@@ -30,6 +30,7 @@ SELECT
   JSON_EXTRACT_ARRAY(work, '$.related_works') AS related_works,
   JSON_EXTRACT_ARRAY(work, '$.referenced_works') AS referenced_works,
   JSON_EXTRACT_ARRAY(work, '$.locations') AS locations,
+  JSON_EXTRACT_ARRAY(work, '$.mesh') AS mesh,
 
   -- Citation metrics
   JSON_VALUE(work, '$.cited_by_count') AS cited_by_count,
