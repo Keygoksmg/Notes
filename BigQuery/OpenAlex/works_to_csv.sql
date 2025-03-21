@@ -11,6 +11,7 @@ SELECT
   JSON_QUERY(work, '$.primary_location') AS primary_location,  -- Nested JSON for primary location
   JSON_VALUE(work, '$.type') AS type,
   JSON_VALUE(work, '$.type_crossref') AS type_crossref,
+  JSON_VALUE(work, '$.referenced_works_count') AS referenced_works_count,
 
   -- Timestamp fields
   CAST(JSON_VALUE(work, '$.updated_date') AS TIMESTAMP) AS updated_date,
